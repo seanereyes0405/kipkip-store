@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kipkip | Pack your stuff, turn to fluff</title>
+  <meta name="description" content="Kipkip is a handcrafted 2-in-1 everyday bag that transforms into a soft travel pillow. Made in Muzon, San Jose del Monte, Bulacan.">
+  <meta name="theme-color" content="#4D6A42">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Noto+Sans+Tagalog&family=Yellowtail&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Shared SVG assets: logo badge (frayed fabric patch + Baybayin) ===== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="frayed" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5"/>
+      </filter>
+      <pattern id="cord" width="5" height="5" patternUnits="userSpaceOnUse">
+        <rect width="5" height="5" fill="#D9BFA0"/>
+        <rect width="2.4" height="5" fill="#8a6a45" opacity=".16"/>
+      </pattern>
+    </defs>
+    <symbol id="kipkip-logo" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="91" fill="none" stroke="#5C381E" stroke-width="15" stroke-dasharray="1.6 1.3" filter="url(#frayed)"/>
+      <circle cx="100" cy="100" r="79" fill="none" stroke="#608053" stroke-width="13" stroke-dasharray="2 1.4" filter="url(#frayed)"/>
+      <circle cx="100" cy="100" r="68" fill="url(#cord)"/>
+      <circle cx="100" cy="100" r="68" fill="none" stroke="#EFE3CF" stroke-width="6" stroke-dasharray="1.2 1.2" filter="url(#frayed)"/>
+      <text x="100" y="108" text-anchor="middle" font-family="Yellowtail, cursive" font-size="46" fill="#4D6A42" stroke="#F9F6F0" stroke-width="4" paint-order="stroke" stroke-linejoin="round">kipkip</text>
+      <text x="100" y="141" text-anchor="middle" font-family="'Noto Sans Tagalog', sans-serif" font-size="19" fill="#4D6A42">ᜃᜒᜉ᜔ᜃᜒᜉ᜔</text>
+    </symbol>
+  </svg>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Kipkip home">
+        <svg class="logo-badge" viewBox="0 0 200 200" aria-hidden="true"><use href="#kipkip-logo" width="200" height="200"/></svg>
+        <span class="brand-name">Kipkip</span>
+      </a>
+
+      <nav id="siteNav" class="site-nav" aria-label="Main">
+        <a href="#home">Home</a>
+        <a href="#shop">Browse / Shop</a>
+        <a href="#about">About Us</a>
+        <a href="#location">Location &amp; Hours</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div id="authArea" class="auth-area"></div>
+        <button id="cartBtn" class="icon-btn" type="button" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.5L20.5 8H6"/><circle cx="9.5" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>
+          <span id="cartCount" class="badge" aria-live="polite">0</span>
+        </button>
+        <button id="menuToggle" class="icon-btn menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== Hero ===== -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Handcrafted in Muzon, Bulacan</p>
+          <h1>Pack your stuff,<br><em>turn to fluff.</em></h1>
+          <p class="lead">Kipkip is the everyday bag that doubles as a soft resting pillow. Carry your things crossbody or on the shoulder, then convert it into a cushion for the commute, the long ride, or a quick nap.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#shop">Shop Now</a>
+            <a class="btn btn-ghost" href="#about">Our story</a>
+          </div>
+          <ul class="hero-points">
+            <li>Soft cotton exterior</li>
+            <li>Plush fiberfill interior</li>
+            <li>Adjustable strap</li>
+          </ul>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg class="hero-badge" viewBox="0 0 200 200"><use href="#kipkip-logo" width="200" height="200"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== How it works ===== -->
+    <section class="how" aria-labelledby="how-title">
+      <div class="container">
+        <h2 id="how-title" class="sr-only">How Kipkip works</h2>
+        <ol class="steps">
+          <li><span class="step-no">1</span><h3>Carry</h3><p>Wear it crossbody or on the shoulder with the fully adjustable strap.</p></li>
+          <li><span class="step-no">2</span><h3>Convert</h3><p>Flip the bag into a compact, ergonomic neck or head cushion.</p></li>
+          <li><span class="step-no">3</span><h3>Rest</h3><p>Soft fiberfill padding keeps you comfortable on the go.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== Shop ===== -->
+    <section id="shop" class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Browse / Shop</p>
+          <h2>The Kipkip 2-in-1 Bag Pillow</h2>
+        </header>
+
+        <article class="product">
+          <div class="product-visual">
+            <div class="preview-stage">
+              <svg id="bagPreview" class="bag-svg" viewBox="0 0 320 360" role="img" aria-label="Kipkip bag preview">
+                <defs>
+                  <linearGradient id="shade" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity=".30"/>
+                    <stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+                    <stop offset="1" stop-color="#000" stop-opacity=".24"/>
+                  </linearGradient>
+                </defs>
+                <ellipse cx="160" cy="338" rx="105" ry="10" fill="#000" opacity=".12"/>
+
+                <!-- Bag mode -->
+                <g id="bagGroup" class="mode-group">
+                  <path d="M92 130 C86 28 236 28 228 130" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="19" stroke-linecap="round"/>
+                  <path d="M92 130 C86 28 236 28 228 130" fill="none" stroke="#EADFC8" stroke-width="14" stroke-linecap="round"/>
+                  <path class="tint" d="M62 150 Q62 128 84 126 L236 126 Q258 128 258 150 L268 304 Q268 334 238 334 L82 334 Q52 334 52 304 Z" stroke="rgba(0,0,0,.2)" stroke-width="2"/>
+                  <path d="M62 150 Q62 128 84 126 L236 126 Q258 128 258 150 L268 304 Q268 334 238 334 L82 334 Q52 334 52 304 Z" fill="url(#shade)"/>
+                  <path d="M70 172 L250 172" stroke="rgba(0,0,0,.28)" stroke-width="2" stroke-dasharray="5 4"/>
+                  <circle cx="218" cy="172" r="5" fill="#EADFC8" stroke="rgba(0,0,0,.3)"/>
+                  <rect x="128" y="236" width="64" height="30" rx="4" fill="#F7EFD9" stroke="rgba(0,0,0,.18)"/>
+                  <text x="160" y="256" text-anchor="middle" font-family="'Noto Sans Tagalog', sans-serif" font-size="13" fill="#4D6A42">ᜃᜒᜉ᜔ᜃᜒᜉ᜔</text>
+                </g>
+
+                <!-- Pillow mode -->
+                <g id="pillowGroup" class="mode-group" hidden>
+                  <path class="tint" d="M54 140 C58 96 262 96 266 140 C284 176 284 244 266 280 C262 324 58 324 54 280 C36 244 36 176 54 140 Z" stroke="rgba(0,0,0,.2)" stroke-width="2"/>
+                  <path d="M54 140 C58 96 262 96 266 140 C284 176 284 244 266 280 C262 324 58 324 54 280 C36 244 36 176 54 140 Z" fill="url(#shade)"/>
+                  <path d="M70 150 C80 124 240 124 250 150 C264 180 264 240 250 270 C240 298 80 298 70 270 C56 240 56 180 70 150 Z" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="2" stroke-dasharray="5 4"/>
+                  <path d="M258 122 q28 -14 34 8" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="15" stroke-linecap="round"/>
+                  <path d="M258 122 q28 -14 34 8" fill="none" stroke="#EADFC8" stroke-width="10" stroke-linecap="round"/>
+                  <rect x="128" y="196" width="64" height="30" rx="4" fill="#F7EFD9" stroke="rgba(0,0,0,.18)"/>
+                  <text x="160" y="216" text-anchor="middle" font-family="'Noto Sans Tagalog', sans-serif" font-size="13" fill="#4D6A42">ᜃᜒᜉ᜔ᜃᜒᜉ᜔</text>
+                </g>
+              </svg>
+            </div>
+            <div class="mode-toggle" role="group" aria-label="Preview mode">
+              <button id="modeBag" type="button" aria-pressed="true">Bag</button>
+              <button id="modePillow" type="button" aria-pressed="false">Pillow</button>
+            </div>
+            <p class="preview-note">Preview is an illustration. Colors may vary slightly by screen and fabric lot.</p>
+          </div>
+
+          <div class="product-info">
+            <h3 class="product-title">Kipkip Bag Pillow</h3>
+            <p class="price"><span data-price>₱174.96</span> <small>per piece</small></p>
+            <p class="product-desc">A durable cotton shoulder bag with a zipper closure and padded two-tone straps, designed to convert into a cozy travel pillow.</p>
+
+            <fieldset class="field-group">
+              <legend>Color: <strong id="colorName"></strong></legend>
+              <div id="swatches" class="swatches" role="radiogroup" aria-label="Bag color"></div>
+            </fieldset>
+
+            <div class="field-group">
+              <label for="qty" class="label">Quantity</label>
+              <div class="qty">
+                <button id="qtyDec" type="button" aria-label="Decrease quantity">&minus;</button>
+                <input id="qty" type="number" inputmode="numeric" min="1" max="20" value="1" aria-live="polite">
+                <button id="qtyInc" type="button" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+
+            <p class="subtotal-row">Subtotal <strong id="subtotal">₱174.96</strong></p>
+
+            <div class="product-cta">
+              <button id="addToCart" class="btn btn-primary" type="button">Add to Cart</button>
+              <button id="buyNow" class="btn btn-secondary" type="button">Buy Now</button>
+            </div>
+            <p class="hint">Sign up or sign in to add items and check out.</p>
+
+            <dl class="specs">
+              <div><dt>Body</dt><dd>15.8 in &times; 17 in &times; 3.9 in</dd></div>
+              <div><dt>Strap</dt><dd>32 in long, 2.5 in wide, adjustable</dd></div>
+              <div><dt>Material</dt><dd>Soft cotton with fiberfill padding</dd></div>
+              <div><dt>Packaging</dt><dd>Frosted ziplock pouch with brand tag</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section id="about" class="section section-alt">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">About Us</p>
+          <h2>Named for the way we carry things</h2>
+          <p><strong>Kipkip</strong> is a Filipino word for carrying an item securely pressed against the side of the body, or under the arm. That is exactly the spirit of the bag: close, comfortable, and always with you.</p>
+          <p>We are a small partnership of six entrepreneurship students from San Jose del Monte, sewing and finishing each piece by hand. We aim to offer dependable, thoughtfully designed two-in-one bag pillows at accessible prices, while keeping fabric waste low and packaging simple.</p>
+          <div class="vm">
+            <div><h3>Vision</h3><p>A reputable, innovative local brand known for durable quality and dual-purpose convertible accessories for commuters, travelers, and students.</p></div>
+            <div><h3>Mission</h3><p>Space-saving everyday convenience with high production standards, accessible pricing, and ethical practice in our community.</p></div>
+          </div>
+        </div>
+        <aside class="meaning" aria-label="Logo and color meaning">
+          <svg class="meaning-badge" viewBox="0 0 200 200" aria-hidden="true"><use href="#kipkip-logo" width="200" height="200"/></svg>
+          <ul class="palette">
+            <li><span class="dot" style="--c:#4D6A42"></span><div><strong>Luntian</strong><span>Growth and eco-friendly sustainability</span></div></li>
+            <li><span class="dot" style="--c:#7B4E2D"></span><div><strong>Kayumanggi</strong><span>The earth, local roots, and traditional craft</span></div></li>
+            <li><span class="dot" style="--c:#F3EFE6"></span><div><strong>Cream</strong><span>Warmth, simplicity, and a handmade feel</span></div></li>
+          </ul>
+          <p class="baybayin" lang="tl">ᜃᜒᜉ᜔ᜃᜒᜉ᜔</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== Location & Hours ===== -->
+    <section id="location" class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Location &amp; Hours</p>
+          <h2>Visit the Kipkip studio</h2>
+        </header>
+
+        <div class="location-grid">
+          <div class="card">
+            <h3>Address</h3>
+            <address>Block 58, Lot 51 to 53, Waling Waling Street,<br>Sarmiento Homes, Muzon Proper,<br>City of San Jose del Monte, Bulacan</address>
+            <p class="muted">Near local community hubs and schools, with pickup available at the studio.</p>
+            <a class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query=Waling+Waling+Street+Sarmiento+Homes+Muzon+Proper+San+Jose+del+Monte+Bulacan">Open in Google Maps</a>
+          </div>
+
+          <div class="card">
+            <h3>Business Hours <span id="openStatus" class="status" role="status"></span></h3>
+            <table class="hours">
+              <caption class="sr-only">Business hours</caption>
+              <tbody>
+                <tr><th scope="row">Monday &ndash; Saturday</th><td>8:00 AM &ndash; 5:00 PM</td></tr>
+                <tr><th scope="row">Sunday</th><td>Closed / Day off</td></tr>
+                <tr><th scope="row">Holidays</th><td>8:00 AM &ndash; 5:00 PM</td></tr>
+              </tbody>
+            </table>
+            <p class="muted">Orders and inquiries are also handled online through our social pages.</p>
+          </div>
+
+          <div class="map-wrap">
+            <iframe title="Map of Kipkip studio in Muzon Proper, San Jose del Monte" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Waling+Waling+Street,+Sarmiento+Homes,+Muzon+Proper,+San+Jose+del+Monte,+Bulacan&amp;output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="section section-alt">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Say hello</h2>
+          <p>Questions about colors, bulk orders for your shop, or pickup? Reach us any time during business hours.</p>
+          <ul class="contact-list">
+            <li><span>Phone</span><a href="tel:+639059438665">0905-943-8665</a></li>
+            <li><span>Email</span><a href="mailto:officialkipkipph@gmail.com">officialkipkipph@gmail.com</a></li>
+            <li><span>Facebook</span><a href="https://www.facebook.com/kipkip.ph/" target="_blank" rel="noopener noreferrer">facebook.com/kipkip.ph</a></li>
+            <li><span>Instagram</span><a href="https://www.instagram.com/officialkipkipph/" target="_blank" rel="noopener noreferrer">@officialkipkipph</a></li>
+            <li><span>TikTok</span><a href="https://www.tiktok.com/@officialkipkipph" target="_blank" rel="noopener noreferrer">@officialkipkipph</a></li>
+          </ul>
+        </div>
+
+        <form id="contactForm" class="card form" novalidate>
+          <h3>Send a message</h3>
+          <label>Your name<input name="name" type="text" required maxlength="80" autocomplete="name"></label>
+          <label>Your email<input name="email" type="email" required maxlength="120" autocomplete="email"></label>
+          <label>Message<textarea name="message" rows="4" required maxlength="1000"></textarea></label>
+          <p id="contactMsg" class="form-msg" role="alert"></p>
+          <button class="btn btn-primary" type="submit">Open in my email app</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <svg class="logo-badge" viewBox="0 0 200 200" aria-hidden="true"><use href="#kipkip-logo" width="200" height="200"/></svg>
+        <div><strong>Kipkip</strong><span>Pack your stuff, turn to fluff</span></div>
+      </div>
+      <p class="copyright">&copy; <span id="year">2026</span> Kipkip. Muzon Proper, City of San Jose del Monte, Bulacan.</p>
+      <button class="link-btn" type="button" data-open-settings>Store Settings</button>
+    </div>
+  </footer>
+
+  <!-- ===== Dialogs ===== -->
+
+  <!-- Auth -->
+  <dialog id="authDialog" aria-labelledby="authTitle">
+    <div class="dialog-body">
+      <button class="close-btn" type="button" data-close aria-label="Close">&times;</button>
+      <h2 id="authTitle">Welcome to Kipkip</h2>
+      <div class="tabs" role="tablist">
+        <button id="tabSignup" role="tab" type="button" aria-selected="true" aria-controls="signupForm">Sign Up</button>
+        <button id="tabLogin" role="tab" type="button" aria-selected="false" aria-controls="loginForm">Sign In</button>
+      </div>
+
+      <form id="signupForm" class="form" novalidate>
+        <p class="muted">Create an account first. You can then sign in to check out.</p>
+        <label>Full name<input name="name" type="text" required maxlength="60" autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required maxlength="120" autocomplete="email"></label>
+        <label>Password<input name="password" type="password" required minlength="8" maxlength="100" autocomplete="new-password"><small>At least 8 characters.</small></label>
+        <button class="btn btn-primary" type="submit">Create account</button>
+      </form>
+
+      <form id="loginForm" class="form" novalidate hidden>
+        <label>Email<input name="email" type="email" required maxlength="120" autocomplete="email"></label>
+        <label>Password<input name="password" type="password" required maxlength="100" autocomplete="current-password"></label>
+        <button class="btn btn-primary" type="submit">Sign in</button>
+      </form>
+
+      <p id="authMsg" class="form-msg" role="alert"></p>
+    </div>
+  </dialog>
+
+  <!-- Cart drawer -->
+  <dialog id="cartDialog" class="drawer" aria-labelledby="cartTitle">
+    <div class="drawer-head">
+      <h2 id="cartTitle">Your cart</h2>
+      <button class="close-btn static" type="button" data-close aria-label="Close cart">&times;</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="drawer-foot">
+      <p class="subtotal-row">Total <strong id="cartTotal">₱0.00</strong></p>
+      <button id="checkoutBtn" class="btn btn-primary btn-block" type="button">Checkout</button>
+    </div>
+  </dialog>
+
+  <!-- Checkout -->
+  <dialog id="checkoutDialog" class="wide" aria-labelledby="checkoutTitle">
+    <div class="dialog-body">
+      <button class="close-btn" type="button" data-close aria-label="Close">&times;</button>
+      <h2 id="checkoutTitle">Checkout</h2>
+      <div id="checkoutSummary" class="summary"></div>
+      <form id="checkoutForm" class="form" novalidate>
+        <label>Full name<input name="fullName" type="text" required maxlength="80" autocomplete="name"></label>
+        <label>Mobile number<input name="phone" type="tel" required maxlength="20" placeholder="09XX XXX XXXX" autocomplete="tel"></label>
+        <fieldset class="pay">
+          <legend>Fulfillment &amp; payment</legend>
+          <label class="radio"><input type="radio" name="payment" value="Cash on delivery" checked> Delivery, cash on delivery</label>
+          <label class="radio"><input type="radio" name="payment" value="GCash"> Delivery, GCash (instructions sent by message)</label>
+          <label class="radio"><input type="radio" name="payment" value="Studio pickup"> Pickup at the studio</label>
+        </fieldset>
+        <label>Delivery address<textarea name="address" rows="3" maxlength="300" autocomplete="street-address"></textarea></label>
+        <label>Notes (optional)<input name="notes" type="text" maxlength="200"></label>
+        <p class="muted">This is a demo checkout. No payment is collected on this page.</p>
+        <p id="checkoutMsg" class="form-msg" role="alert"></p>
+        <button class="btn btn-primary btn-block" type="submit">Place order</button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Confirmation -->
+  <dialog id="confirmDialog" aria-labelledby="confirmTitle">
+    <div class="dialog-body">
+      <button class="close-btn" type="button" data-close aria-label="Close">&times;</button>
+      <h2 id="confirmTitle">Order received</h2>
+      <div id="confirmBody"></div>
+      <button class="btn btn-primary btn-block" type="button" data-close>Done</button>
+    </div>
+  </dialog>
+
+  <!-- Store settings / customizer -->
+  <dialog id="settingsDialog" class="wide" aria-labelledby="settingsTitle">
+    <div class="dialog-body">
+      <button class="close-btn" type="button" data-close aria-label="Close">&times;</button>
+      <h2 id="settingsTitle">Store Settings</h2>
+      <p class="muted">Changes apply instantly and are saved in this browser only.</p>
+
+      <form id="priceForm" class="form inline-form" novalidate>
+        <label>Base price (PHP)<input id="priceInput" name="price" type="number" min="0.01" max="1000000" step="0.01" required></label>
+        <button class="btn btn-primary" type="submit">Update price</button>
+      </form>
+
+      <h3>Colors</h3>
+      <ul id="colorList" class="color-list"></ul>
+
+      <form id="colorForm" class="form color-form" novalidate>
+        <label>Color name<input id="newColorName" name="name" type="text" maxlength="24" required placeholder="e.g. Terracotta"></label>
+        <label>Pick<input id="newColorPicker" type="color" value="#B5651D" aria-label="Pick color"></label>
+        <label>Hex<input id="newColorHex" name="hex" type="text" maxlength="7" placeholder="#B5651D" value="#B5651D" required></label>
+        <button class="btn btn-secondary" type="submit">Add color</button>
+      </form>
+
+      <p id="settingsMsg" class="form-msg" role="alert"></p>
+      <button id="resetBtn" class="btn btn-ghost" type="button">Reset to defaults</button>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
