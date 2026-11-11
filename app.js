@@ -9,23 +9,25 @@
 
   /* ---------- Constants ---------- */
   const KEYS = {
-    settings: 'kipkip.settings.v1',
+    settings: 'kipkip.settings.v2',
     users: 'kipkip.users.v1',
     session: 'kipkip.session.v1',
-    cart: 'kipkip.cart.v1',
+    cart: 'kipkip.cart.v2',
     orders: 'kipkip.orders.v1',
   };
+
+  // Superseded keys (old 7-color palette). Cleared once so stale data never lingers.
+  const LEGACY_KEYS = ['kipkip.settings.v1', 'kipkip.cart.v1'];
 
   const DEFAULTS = Object.freeze({
     price: 174.96,
     colors: [
-      { id: 'navy-blue', name: 'Navy Blue', hex: '#1B2A4A' },
-      { id: 'sage-green', name: 'Sage Green', hex: '#9CAF88' },
-      { id: 'cream-white', name: 'Cream White', hex: '#FDFBF7' },
-      { id: 'lilac', name: 'Lilac', hex: '#C8A2C8' },
-      { id: 'dark-brown', name: 'Dark Brown', hex: '#4A2E1B' },
-      { id: 'gray', name: 'Gray', hex: '#808080' },
-      { id: 'black', name: 'Black', hex: '#1F1F1F' },
+      { id: 'cream', name: 'Cream', hex: '#EFECE1' },
+      { id: 'blush-pink', name: 'Blush Pink', hex: '#E89DAF' },
+      { id: 'gray', name: 'Gray', hex: '#788085' },
+      { id: 'olive-green', name: 'Olive Green', hex: '#5A6448' },
+      { id: 'navy-blue', name: 'Navy Blue', hex: '#182642' },
+      { id: 'black', name: 'Black', hex: '#1C1D21' },
     ],
   });
 
@@ -136,7 +138,6 @@
     userEmail: load(KEYS.session, null),
     colorId: null,
     qty: 1,
-    mode: 'bag',
     pending: null,          // action to resume after sign-in
     checkoutItems: [],      // items being checked out
     checkoutFromCart: false,
@@ -154,8 +155,7 @@
 
   /* ---------- Element refs ---------- */
   const els = {
-    preview: $('#bagPreview'), bagGroup: $('#bagGroup'), pillowGroup: $('#pillowGroup'),
-    modeBag: $('#modeBag'), modePillow: $('#modePillow'),
+    preview: $('#bagPreview'),
     colorName: $('#colorName'), swatches: $('#swatches'),
     qty: $('#qty'), qtyDec: $('#qtyDec'), qtyInc: $('#qtyInc'), subtotal: $('#subtotal'),
     addToCart: $('#addToCart'), buyNow: $('#buyNow'),
@@ -206,13 +206,8 @@
   function renderPreview() {
     const c = colorById(state.colorId) || state.settings.colors[0];
     els.preview.style.setProperty('--bag', c.hex);
-    els.preview.setAttribute('aria-label', `Kipkip ${state.mode} preview in ${c.name}`);
+    els.preview.setAttribute('aria-label', `Kipkip bag preview in ${c.name}`);
     els.colorName.textContent = c.name;
-    const bag = state.mode === 'bag';
-    els.bagGroup.hidden = !bag;
-    els.pillowGroup.hidden = bag;
-    els.modeBag.setAttribute('aria-pressed', String(bag));
-    els.modePillow.setAttribute('aria-pressed', String(!bag));
   }
 
   function selectColor(id, focus = false) {
@@ -641,10 +636,6 @@
      Init & event wiring
      ========================================================== */
   function bind() {
-    // Preview mode
-    els.modeBag.addEventListener('click', () => { state.mode = 'bag'; renderPreview(); });
-    els.modePillow.addEventListener('click', () => { state.mode = 'pillow'; renderPreview(); });
-
     // Swatch keyboard navigation (radio-group pattern)
     els.swatches.addEventListener('keydown', (e) => {
       const keys = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
@@ -748,6 +739,7 @@
 
   function init() {
     $('#year').textContent = String(new Date().getFullYear());
+    LEGACY_KEYS.forEach((k) => { try { localStorage.removeItem(k); } catch (_) { /* storage unavailable */ } });
     bind();
     setQty(1);
     renderAll();
