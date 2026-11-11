@@ -4,43 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kipkip | Pack your stuff, turn to fluff</title>
-  <meta name="description" content="Kipkip is a handcrafted 2-in-1 everyday bag that transforms into a soft travel pillow. Made in Muzon, San Jose del Monte, Bulacan.">
+  <meta name="description" content="Kipkip is a handcrafted corduroy 2-in-1 everyday bag that transforms into a soft travel pillow. Made in Muzon, San Jose del Monte, Bulacan.">
   <meta name="theme-color" content="#4D6A42">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Noto+Sans+Tagalog&family=Yellowtail&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Noto+Sans+Tagalog&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Beth+Ellen&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ===== Shared SVG assets: logo badge (frayed fabric patch + Baybayin) ===== -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <defs>
-      <filter id="frayed" x="-10%" y="-10%" width="120%" height="120%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="noise"/>
-        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5"/>
-      </filter>
-      <pattern id="cord" width="5" height="5" patternUnits="userSpaceOnUse">
-        <rect width="5" height="5" fill="#D9BFA0"/>
-        <rect width="2.4" height="5" fill="#8a6a45" opacity=".16"/>
-      </pattern>
-    </defs>
-    <symbol id="kipkip-logo" viewBox="0 0 200 200">
-      <circle cx="100" cy="100" r="91" fill="none" stroke="#5C381E" stroke-width="15" stroke-dasharray="1.6 1.3" filter="url(#frayed)"/>
-      <circle cx="100" cy="100" r="79" fill="none" stroke="#608053" stroke-width="13" stroke-dasharray="2 1.4" filter="url(#frayed)"/>
-      <circle cx="100" cy="100" r="68" fill="url(#cord)"/>
-      <circle cx="100" cy="100" r="68" fill="none" stroke="#EFE3CF" stroke-width="6" stroke-dasharray="1.2 1.2" filter="url(#frayed)"/>
-      <text x="100" y="108" text-anchor="middle" font-family="Yellowtail, cursive" font-size="46" fill="#4D6A42" stroke="#F9F6F0" stroke-width="4" paint-order="stroke" stroke-linejoin="round">kipkip</text>
-      <text x="100" y="141" text-anchor="middle" font-family="'Noto Sans Tagalog', sans-serif" font-size="19" fill="#4D6A42">ᜃᜒᜉ᜔ᜃᜒᜉ᜔</text>
-    </symbol>
-  </svg>
-
   <!-- ===== Header ===== -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#home" aria-label="Kipkip home">
-        <svg class="logo-badge" viewBox="0 0 200 200" aria-hidden="true"><use href="#kipkip-logo" width="200" height="200"/></svg>
+        <img src="logo.png" alt="Kipkip Logo" class="brand-logo-img" onerror="this.classList.add('is-missing')">
         <span class="brand-name">Kipkip</span>
       </a>
 
@@ -72,19 +51,19 @@
         <div class="hero-copy">
           <p class="eyebrow">Handcrafted in Muzon, Bulacan</p>
           <h1>Pack your stuff,<br><em>turn to fluff.</em></h1>
-          <p class="lead">Kipkip is the everyday bag that doubles as a soft resting pillow. Carry your things crossbody or on the shoulder, then convert it into a cushion for the commute, the long ride, or a quick nap.</p>
+          <p class="lead">Kipkip is a textured corduroy everyday bag that doubles as a soft resting pillow. Carry your things crossbody or on the shoulder, then convert it into a cushion for the commute, the long ride, or a quick nap.</p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="#shop">Shop Now</a>
             <a class="btn btn-ghost" href="#about">Our story</a>
           </div>
           <ul class="hero-points">
-            <li>Soft cotton exterior</li>
+            <li>Textured corduroy exterior</li>
             <li>Plush fiberfill interior</li>
             <li>Adjustable strap</li>
           </ul>
         </div>
         <div class="hero-art" aria-hidden="true">
-          <svg class="hero-badge" viewBox="0 0 200 200"><use href="#kipkip-logo" width="200" height="200"/></svg>
+          <img src="logo.png" alt="Kipkip Logo" class="brand-logo-img hero-badge" onerror="this.classList.add('is-missing')">
         </div>
       </div>
     </section>
@@ -122,8 +101,8 @@
                 </defs>
                 <ellipse cx="160" cy="338" rx="105" ry="10" fill="#000" opacity=".12"/>
 
-                <!-- Bag mode -->
-                <g id="bagGroup" class="mode-group">
+                <!-- Kipkip bag -->
+                <g id="bagGroup">
                   <path d="M92 130 C86 28 236 28 228 130" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="19" stroke-linecap="round"/>
                   <path d="M92 130 C86 28 236 28 228 130" fill="none" stroke="#EADFC8" stroke-width="14" stroke-linecap="round"/>
                   <path class="tint" d="M62 150 Q62 128 84 126 L236 126 Q258 128 258 150 L268 304 Q268 334 238 334 L82 334 Q52 334 52 304 Z" stroke="rgba(0,0,0,.2)" stroke-width="2"/>
@@ -134,21 +113,7 @@
                   <text x="160" y="256" text-anchor="middle" font-family="'Noto Sans Tagalog', sans-serif" font-size="13" fill="#4D6A42">ᜃᜒᜉ᜔ᜃᜒᜉ᜔</text>
                 </g>
 
-                <!-- Pillow mode -->
-                <g id="pillowGroup" class="mode-group" hidden>
-                  <path class="tint" d="M54 140 C58 96 262 96 266 140 C284 176 284 244 266 280 C262 324 58 324 54 280 C36 244 36 176 54 140 Z" stroke="rgba(0,0,0,.2)" stroke-width="2"/>
-                  <path d="M54 140 C58 96 262 96 266 140 C284 176 284 244 266 280 C262 324 58 324 54 280 C36 244 36 176 54 140 Z" fill="url(#shade)"/>
-                  <path d="M70 150 C80 124 240 124 250 150 C264 180 264 240 250 270 C240 298 80 298 70 270 C56 240 56 180 70 150 Z" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="2" stroke-dasharray="5 4"/>
-                  <path d="M258 122 q28 -14 34 8" fill="none" stroke="rgba(0,0,0,.28)" stroke-width="15" stroke-linecap="round"/>
-                  <path d="M258 122 q28 -14 34 8" fill="none" stroke="#EADFC8" stroke-width="10" stroke-linecap="round"/>
-                  <rect x="128" y="196" width="64" height="30" rx="4" fill="#F7EFD9" stroke="rgba(0,0,0,.18)"/>
-                  <text x="160" y="216" text-anchor="middle" font-family="'Noto Sans Tagalog', sans-serif" font-size="13" fill="#4D6A42">ᜃᜒᜉ᜔ᜃᜒᜉ᜔</text>
-                </g>
               </svg>
-            </div>
-            <div class="mode-toggle" role="group" aria-label="Preview mode">
-              <button id="modeBag" type="button" aria-pressed="true">Bag</button>
-              <button id="modePillow" type="button" aria-pressed="false">Pillow</button>
             </div>
             <p class="preview-note">Preview is an illustration. Colors may vary slightly by screen and fabric lot.</p>
           </div>
@@ -156,7 +121,7 @@
           <div class="product-info">
             <h3 class="product-title">Kipkip Bag Pillow</h3>
             <p class="price"><span data-price>₱174.96</span> <small>per piece</small></p>
-            <p class="product-desc">A durable cotton shoulder bag with a zipper closure and padded two-tone straps, designed to convert into a cozy travel pillow.</p>
+            <p class="product-desc">A shoulder bag in soft corduroy with a cotton and fiberfill build, a zipper closure and a carry strap, designed to convert into a cozy travel pillow.</p>
 
             <fieldset class="field-group">
               <legend>Color: <strong id="colorName"></strong></legend>
@@ -181,9 +146,9 @@
             <p class="hint">Sign up or sign in to add items and check out.</p>
 
             <dl class="specs">
-              <div><dt>Body</dt><dd>15.8 in &times; 17 in &times; 3.9 in</dd></div>
-              <div><dt>Strap</dt><dd>32 in long, 2.5 in wide, adjustable</dd></div>
-              <div><dt>Material</dt><dd>Soft cotton with fiberfill padding</dd></div>
+              <div><dt>Body Size</dt><dd>L &ndash; 8 in &times; W &ndash; 11.5 in</dd></div>
+              <div><dt>Strap Dimensions</dt><dd>L &ndash; 27 in &times; W &ndash; 2.3 in</dd></div>
+              <div><dt>Materials</dt><dd>Corduroy, Soft Cotton, Fiberfill</dd></div>
               <div><dt>Packaging</dt><dd>Frosted ziplock pouch with brand tag</dd></div>
             </dl>
           </div>
@@ -205,7 +170,7 @@
           </div>
         </div>
         <aside class="meaning" aria-label="Logo and color meaning">
-          <svg class="meaning-badge" viewBox="0 0 200 200" aria-hidden="true"><use href="#kipkip-logo" width="200" height="200"/></svg>
+          <img src="logo.png" alt="Kipkip Logo" class="brand-logo-img meaning-badge" onerror="this.classList.add('is-missing')">
           <ul class="palette">
             <li><span class="dot" style="--c:#4D6A42"></span><div><strong>Luntian</strong><span>Growth and eco-friendly sustainability</span></div></li>
             <li><span class="dot" style="--c:#7B4E2D"></span><div><strong>Kayumanggi</strong><span>The earth, local roots, and traditional craft</span></div></li>
@@ -227,9 +192,9 @@
         <div class="location-grid">
           <div class="card">
             <h3>Address</h3>
-            <address>Block 58, Lot 51 to 53, Waling Waling Street,<br>Sarmiento Homes, Muzon Proper,<br>City of San Jose del Monte, Bulacan</address>
+            <address>Waling-Waling Street,<br>Sarmiento Homes, Muzon Proper,<br>City of San Jose del Monte, Bulacan</address>
             <p class="muted">Near local community hubs and schools, with pickup available at the studio.</p>
-            <a class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query=Waling+Waling+Street+Sarmiento+Homes+Muzon+Proper+San+Jose+del+Monte+Bulacan">Open in Google Maps</a>
+            <a class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps?q=Waling-Waling+Street,+Sarmiento+Homes,+Muzon+Proper,+City+of+San+Jose+del+Monte,+Bulacan">Open in Google Maps</a>
           </div>
 
           <div class="card">
@@ -246,8 +211,13 @@
           </div>
 
           <div class="map-wrap">
+            <div class="map-fallback">
+              <p><strong>Waling-Waling Street, Sarmiento Homes, Muzon Proper,<br>City of San Jose del Monte, Bulacan</strong></p>
+              <p class="muted">If the map doesn't load, open it directly.</p>
+              <a class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps?q=Waling-Waling+Street,+Sarmiento+Homes,+Muzon+Proper,+City+of+San+Jose+del+Monte,+Bulacan">Open in Google Maps</a>
+            </div>
             <iframe title="Map of Kipkip studio in Muzon Proper, San Jose del Monte" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Waling+Waling+Street,+Sarmiento+Homes,+Muzon+Proper,+San+Jose+del+Monte,+Bulacan&amp;output=embed"></iframe>
+              src="https://www.google.com/maps?q=Waling-Waling+Street,+Sarmiento+Homes,+Muzon+Proper,+City+of+San+Jose+del+Monte,+Bulacan&amp;output=embed"></iframe>
           </div>
         </div>
       </div>
@@ -285,7 +255,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <svg class="logo-badge" viewBox="0 0 200 200" aria-hidden="true"><use href="#kipkip-logo" width="200" height="200"/></svg>
+        <img src="logo.png" alt="Kipkip Logo" class="brand-logo-img" onerror="this.classList.add('is-missing')">
         <div><strong>Kipkip</strong><span>Pack your stuff, turn to fluff</span></div>
       </div>
       <p class="copyright">&copy; <span id="year">2026</span> Kipkip. Muzon Proper, City of San Jose del Monte, Bulacan.</p>
