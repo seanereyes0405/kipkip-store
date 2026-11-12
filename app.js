@@ -31,6 +31,17 @@
     ],
   });
 
+  // Product photo for each official color (files live next to index.html).
+  // Custom colors added in Store Settings have no photo and show a tinted placeholder.
+  const IMAGE_BY_ID = Object.freeze({
+    'cream': 'bag-cream.jpg',
+    'blush-pink': 'bag-blush-pink.jpg',
+    'gray': 'bag-gray.jpg',
+    'olive-green': 'bag-olive-green.jpg',
+    'navy-blue': 'bag-navy-blue.jpg',
+    'black': 'bag-black.jpg',
+  });
+
   const MAX_QTY = 20;
   const PESO = new Intl.NumberFormat('en-PH', { style: 'currency', currency: 'PHP' });
   const money = (cents) => PESO.format(cents / 100);
@@ -155,7 +166,7 @@
 
   /* ---------- Element refs ---------- */
   const els = {
-    preview: $('#bagPreview'),
+    preview: $('#bagProductImage'), fallback: $('#bagFallback'),
     colorName: $('#colorName'), swatches: $('#swatches'),
     qty: $('#qty'), qtyDec: $('#qtyDec'), qtyInc: $('#qtyInc'), subtotal: $('#subtotal'),
     addToCart: $('#addToCart'), buyNow: $('#buyNow'),
@@ -203,11 +214,27 @@
     });
   }
 
+  function showFallback(color) {
+    els.preview.hidden = true;
+    els.fallback.hidden = false;
+    els.fallback.style.setProperty('--bag', color.hex);
+    els.fallback.classList.toggle('light', isLight(color.hex));
+  }
+
   function renderPreview() {
     const c = colorById(state.colorId) || state.settings.colors[0];
-    els.preview.style.setProperty('--bag', c.hex);
-    els.preview.setAttribute('aria-label', `Kipkip bag preview in ${c.name}`);
     els.colorName.textContent = c.name;
+    const src = IMAGE_BY_ID[c.id];
+    if (!src) return showFallback(c);
+    els.fallback.hidden = true;
+    els.preview.hidden = false;
+    els.preview.alt = `Kipkip Bag in ${c.name}`;
+    if (els.preview.getAttribute('src') !== src) {
+      els.preview.src = src;
+      els.preview.classList.remove('is-swapping');
+      void els.preview.offsetWidth; // restart the fade-in
+      els.preview.classList.add('is-swapping');
+    }
   }
 
   function selectColor(id, focus = false) {
@@ -636,6 +663,12 @@
      Init & event wiring
      ========================================================== */
   function bind() {
+    // If a photo file is missing or fails to load, show the tinted placeholder instead of a broken image
+    els.preview.addEventListener('error', () => {
+      const c = colorById(state.colorId);
+      if (c) showFallback(c);
+    });
+
     // Swatch keyboard navigation (radio-group pattern)
     els.swatches.addEventListener('keydown', (e) => {
       const keys = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
@@ -740,6 +773,7 @@
   function init() {
     $('#year').textContent = String(new Date().getFullYear());
     LEGACY_KEYS.forEach((k) => { try { localStorage.removeItem(k); } catch (_) { /* storage unavailable */ } });
+    Object.values(IMAGE_BY_ID).forEach((src) => { new Image().src = src; }); // preload so swaps are instant
     bind();
     setQty(1);
     renderAll();
